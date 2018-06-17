@@ -6,9 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_COMPILER g++-4.9)
 
 set(SOURCE_FILES
-    main.cpp
-
-    src/units/warriors/Soldier.cpp
+        src/units/warriors/Warrior.cpp
 
     src/abilities/UnitState.cpp
     src/abilities/UnitAttack.cpp
@@ -17,4 +15,4 @@ set(SOURCE_FILES
 include_directories(${PROJECT_SOURCE_DIR}/src)
 include_directories(${PROJECT_SOURCE_DIR}/extlibs)
 
-add_executable(army ${SOURCE_FILES})
+add_executable(army_warriors_test ${SOURCE_FILES} utest/WariorsTest.cpp )

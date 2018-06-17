@@ -13,14 +13,17 @@ struct Soldier : Unit {
 
     virtual void counterAttack(Unit &enemy);
 
-    virtual int getHealthPoints();
+    virtual int getHealthPoints() const;
 
-    virtual int getHealthPointsLimit();
+    virtual int getHealthPointsLimit() const;
 
     virtual void receiveDamage(int damage);
 
     ~Soldier();
-    
+
+private:
+    void ensureIsAlive() const;
+
 private:
     UnitAttack* unitAttack;
     UnitState* unitState;
