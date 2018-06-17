@@ -1,5 +1,5 @@
-#ifndef ARMY_SOLDIER_HPP
-#define ARMY_SOLDIER_HPP
+#ifndef ARMY_WARRIOR_HPP
+#define ARMY_WARRIOR_HPP
 
 #include <units/Unit.hpp>
 
@@ -31,4 +31,4 @@ private:
 };
 
 
-#endif //ARMY_SOLDIER_HPP
+#endif //ARMY_WARRIOR_HPP
