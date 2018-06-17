@@ -1,31 +1,41 @@
-#include "Soldier.hpp"
+#include "Warrior.hpp"
 
-Soldier::Soldier(int healthLimit, int damage)
+#include <stdexcept>
+
+Warrior::Warrior(int healthLimit, int damage)
 : unitAttack(new UnitAttack(damage))
 , unitState(new UnitState(healthLimit, healthLimit))
 {}
 
-Soldier::~Soldier() {
+Warrior::~Warrior() {
     delete unitAttack;
     delete unitState;
 }
 
-void Soldier::attack(Unit &enemy) {
+void Warrior::attack(Unit &enemy) {
     unitAttack->attack(*this, enemy);
 }
 
-void Soldier::counterAttack(Unit &enemy) {
+void Warrior::counterAttack(Unit &enemy) {
     unitAttack->counterAttack(enemy);
 }
 
-int Soldier::getHealthPoints() {
+int Warrior::getHealthPoints() const {
     return unitState->getHealthPoints();
 }
 
-int Soldier::getHealthPointsLimit() {
+int Warrior::getHealthPointsLimit() const {
     return unitState->getHealthPointsLimit();
 }
 
-void Soldier::receiveDamage(int damage) {
+void Warrior::receiveDamage(int damage) {
+    ensureIsAlive();
+
     unitState->receiveDamage(damage);
+}
+
+void Warrior::ensureIsAlive() const {
+    if (getHealthPoints() == 0) {
+        throw UnitIsDeadException();
+    }
 }

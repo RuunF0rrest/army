@@ -6,21 +6,24 @@
 #include <abilities/UnitAttack.hpp>
 #include <abilities/UnitState.hpp>
 
-struct Soldier : Unit {
-    Soldier(int healthLimit, int damage);
+struct Warrior : Unit {
+    Warrior(int healthLimit, int damage);
 
     virtual void attack(Unit &enemy);
 
     virtual void counterAttack(Unit &enemy);
 
-    virtual int getHealthPoints();
+    virtual int getHealthPoints() const;
 
-    virtual int getHealthPointsLimit();
+    virtual int getHealthPointsLimit() const;
 
     virtual void receiveDamage(int damage);
 
-    ~Soldier();
-    
+    ~Warrior();
+
+private:
+    void ensureIsAlive() const;
+
 private:
     UnitAttack* unitAttack;
     UnitState* unitState;
