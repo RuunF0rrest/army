@@ -6,10 +6,10 @@
 struct UnitAttack {
     UnitAttack(int damage);
 
-    void attack(Unit& attacker, Unit& unit);
-    void counterAttack(Unit& unit);
+    virtual void attack(Unit& attacker, Unit& unit);
+    virtual void counterAttack(Unit& unit);
 
-private:
+protected:
     int damage;
 };
 

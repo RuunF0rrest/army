@@ -2,9 +2,9 @@
 
 #include <stdexcept>
 
-Warrior::Warrior(int healthLimit, int damage)
-: unitAttack(new UnitAttack(damage))
-, unitState(new UnitState(healthLimit, healthLimit))
+Warrior::Warrior(UnitAttack* unitAttack, UnitState* unitState)
+: unitAttack(unitAttack)
+, unitState(unitState)
 {}
 
 Warrior::~Warrior() {

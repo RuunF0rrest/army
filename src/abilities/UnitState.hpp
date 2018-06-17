@@ -3,6 +3,10 @@
 
 
 struct UnitState {
+    UnitState(int healthPointsLimit)
+    : UnitState(healthPointsLimit, healthPointsLimit)
+    {}
+
     UnitState(int healthPoints, int healthPointsLimit)
     : healthPoints(healthPoints)
     , healthPointsLimit(healthPointsLimit)

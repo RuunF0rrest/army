@@ -7,7 +7,7 @@
 #include <abilities/UnitState.hpp>
 
 struct Warrior : Unit {
-    Warrior(int healthLimit, int damage);
+    Warrior(UnitAttack* unitAttack, UnitState* unitState);
 
     virtual void attack(Unit &enemy);
 
